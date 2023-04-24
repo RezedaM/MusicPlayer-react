@@ -12,6 +12,12 @@ import NavMenu from '../nav/navMenu'
 import Personal from '../sidebar/personal'
 import SidebarItem from '../sidebar/sidebarItem'
 
+// const items = [
+//   { value: 'Главное', href: 'link', id: 1 },
+//   { value: 'Мой плейлист', href: 'link', id: 1 },
+//   { value: 'Войти', href: 'link', id: 1 },
+// ]
+
 export default function MainTree() {
   return (
     <div className="wrapper">

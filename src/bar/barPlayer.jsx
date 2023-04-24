@@ -1,5 +1,18 @@
 import Sprite from '../assets/icons/sprite.svg'
+import { useEffect } from 'react'
+import { PropsWithChildren, useState } from 'react'
+import Skeleton, { SkeletonTheme } from 'react-loading-skeleton'
+import 'react-loading-skeleton/dist/skeleton.css'
+
 export default function BarPlayer() {
+  const [loadingPage, setLoadingPage] = useState(true)
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setLoadingPage(false)
+    }, 5000)
+    return () => clearTimeout(timer)
+  }, [])
   return (
     <div className="bar__player player">
       <div className="player__controls">
@@ -33,20 +46,51 @@ export default function BarPlayer() {
       <div className="player__track-play track-play">
         <div className="track-play__contain">
           <div className="track-play__image">
-            <svg className="track-play__svg" alt="music">
+            <SkeletonTheme baseColor="#313131" highlightColor="#313131">
+              {loadingPage ? (
+                <Skeleton width={51} height={51} borderRadius={0} count={1} />
+              ) : (
+                <svg className="track-play__svg" alt="music">
+                  <use xlinkHref={`${Sprite}#icon-note`}></use>
+                </svg>
+              )}
+            </SkeletonTheme>
+            {/* <svg className="track-play__svg" alt="music">
               <use xlinkHref={`${Sprite}#icon-note`}></use>
-            </svg>
+            </svg> */}
           </div>
-          <div className="track-play__author">
+          <SkeletonTheme baseColor="#313131" highlightColor="#313131">
+            {loadingPage ? (
+              <Skeleton width={59} height={15} borderRadius={0} count={1} />
+            ) : (
+              <div className="track-play__author">
+                <a className="track-play__author-link" href="http://">
+                  Ты та...
+                </a>
+              </div>
+            )}
+          </SkeletonTheme>
+          {/* <div className="track-play__author">
             <a className="track-play__author-link" href="http://">
               Ты та...
             </a>
-          </div>
-          <div className="track-play__album">
+          </div> */}
+          <SkeletonTheme baseColor="#313131" highlightColor="#313131">
+            {loadingPage ? (
+              <Skeleton width={59} height={15} borderRadius={0} count={1} />
+            ) : (
+              <div className="track-play__album">
+                <a className="track-play__album-link" href="http://">
+                  Баста
+                </a>
+              </div>
+            )}
+          </SkeletonTheme>
+          {/* <div className="track-play__album">
             <a className="track-play__album-link" href="http://">
               Баста
             </a>
-          </div>
+          </div> */}
         </div>
 
         <div className="track-play__like-dis">
