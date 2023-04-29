@@ -3,13 +3,15 @@ import Filter from '../filter-by/filter'
 import TrackList from '../tracklist/tracklist'
 import Track from '../tracklist/track'
 
+import styles from '../centerBlock/centerblock.module.css'
+
 export default function CenterBlock() {
   return (
-    <div className="main__centerblock centerblock">
+    <div className={styles.main__centerblock}>
       <Search />
-      <h2 className="centerblock__h2">Треки</h2>
-      <div className="centerblock__filter filter">
-        <label className="filter__title">Искать по:</label>
+      <h2 className={styles.centerblock__h2}>Треки</h2>
+      <div className={styles.centerblock__filter}>
+        <label className={styles.filter__title}>Искать по:</label>
         <Filter
           options={[
             { value: 'Michael Jackson' },

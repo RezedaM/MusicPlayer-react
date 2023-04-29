@@ -37,6 +37,7 @@
   },
   "devDependencies": {
     "@babel/preset-typescript": "^7.21.4",
+    "clsx": "^1.2.1",
     "downshift": "^7.6.0",
     "eslint": "^8.38.0",
     "eslint-config-prettier": "^8.8.0",
@@ -44,6 +45,7 @@
     "prettier": "2.8.7",
     "react-dropdown": "^1.11.0",
     "react-loading-skeleton": "^3.2.1",
-    "react-select": "^5.7.2"
+    "react-select": "^5.7.2",
+    "styled-components": "^5.3.10"
   }
 }

@@ -1,47 +1,10 @@
-// import Dropdown from 'react-dropdown'
-// import 'react-dropdown/style.css'
-// import { _onSelect } from 'react-dropdown'
-
-// import React, { useState } from 'react'
-// import Select from 'react-select'
-
+import styles from '../filter-by/filter.module.css'
 import * as React from 'react'
 import Downshift from 'downshift'
 import { useSelect } from 'downshift'
 import { useState } from 'react'
 
-// const options = [
-//   { value: 'Michael Jackson' },
-//   { value: 'Frank Sinatra' },
-//   { value: 'Calvin Harris' },
-//   { value: 'Zhu' },
-//   { value: 'Arctic Monkeys' }
-// ]
-
 export default function Filter({ options, optName }) {
-  // const options = [
-  //   'Michael Jackson',
-  //   'Frank Sinatra',
-  //   'Calvin Harris',
-  //   'Zhu',
-  //   'Arctic Monkeys',
-  // ]
-
-  // const singers = [
-  //   { value: 'Michael Jackson' },
-  //   { value: 'Frank Sinatra' },
-  //   { value: 'Calvin Harris' },
-  //   { value: 'Calvin Harris' },
-  //   { value: 'Calvin Harris' },
-  //   { value: 'Calvin Harris' },
-  //   { value: 'Calvin Harris' },
-  //   { value: 'Calvin Harris' }
-  // ]
-  // const genres = [
-  //   { value: 'rock' },
-  //   { value: 'pop' },
-  //   { value: 'jazz' }
-  // ]
   const {
     isOpen,
     selectedItem,
@@ -58,30 +21,26 @@ export default function Filter({ options, optName }) {
   // const defaultOption = options[0]
 
   return (
-    <div className="option">
-      {/* <label className="filter__title" {...getLabelProps()}>
-        Искать по:
-      </label> */}
-
+    <div className={styles.options}>
       <div
-        className={`filter__button button-author _btn-text ${
-          isOpen ? 'dropdwn-active' : ''
-        }`}
+        className={`${styles.filter__button} ${styles.button_author} ${
+          styles.btn_text
+        } ${isOpen ? styles.dropdwn_active : ''}`}
         {...getToggleButtonProps()}
       >
         {selectedItem ?? optName}
       </div>
-      <div className="scrollabale-menu-padding">
+      <div className={styles.scrollabale_menu_padding}>
         <ul
-          className={`filter__dropdown-content ${
-            isOpen ? 'srcollabale-menu' : ''
+          className={`${styles.filter__dropdown_content} ${
+            isOpen ? styles.srcollabale_menu : ''
           }`}
           {...getMenuProps()}
         >
           {isOpen &&
             options.map((item, index) => (
               <li
-                className="filter__dropdown-item"
+                className={styles.filter__dropdown_item}
                 key={`${item}${index}`}
                 {...getItemProps({
                   item,
