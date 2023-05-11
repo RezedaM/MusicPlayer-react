@@ -12,10 +12,13 @@ import NavMenu from '../src/components/nav/navMenu'
 import Sidebar from '../src/components/sidebar/sidebar'
 import MainTree from '../src/components/mainTree/mainTree'
 import { useState } from 'react'
+import { BrowserRouter } from 'react-router-dom'
 
 const root = ReactDOM.createRoot(document.getElementById('root'))
 root.render(
   <React.StrictMode>
-    <MainTree />
+    <BrowserRouter>
+      <App />
+    </BrowserRouter>
   </React.StrictMode>
 )

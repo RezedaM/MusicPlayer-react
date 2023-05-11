@@ -5,7 +5,7 @@ import Skeleton, { SkeletonTheme } from 'react-loading-skeleton'
 import 'react-loading-skeleton/dist/skeleton.css'
 import Sprite from '../../assets/icons/sprite.svg'
 
-function Track({ loading, children }) {
+function Track({ loading, children, author, album, name, duration, track_file }) {
   const [loadingPage, setLoadingPage] = useState(true)
 
   useEffect(() => {
@@ -15,15 +15,17 @@ function Track({ loading, children }) {
     return () => clearTimeout(timer)
   }, [])
 
-  const items = [
-    {
-      track_file: 'link',
-      name: 'Elektro',
-      author: 'Dynoro, Outwork, Mr. Gee',
-      album: 'Elektro',
-      duration: '2:22',
-    },
-  ]
+  console.log(author)
+
+  // const items = [
+  //   {
+  //     track_file: 'link',
+  //     name: 'Elektro',
+  //     author: 'Dynoro, Outwork, Mr. Gee',
+  //     album: 'Elektro',
+  //     duration: '2:22',
+  //   },
+  // ]
   return (
     <div className={styles.playlist__item}>
       <div className={styles.playlist__track}>
@@ -46,9 +48,9 @@ function Track({ loading, children }) {
               <div className={styles.track__title_text}>
                 <a
                   className={styles.track__title_link}
-                  href={items[0].track_file}
+                  href={track_file}
                 >
-                  {items[0].name}{' '}
+                  {name}{' '}
                   <span className={styles.track__title_span}></span>
                 </a>
               </div>
@@ -62,7 +64,7 @@ function Track({ loading, children }) {
               <Skeleton width={290} height={17} borderRadius={0} count={1} />
             ) : (
               <a className={styles.track__author_link} href="http://">
-                {items[0].author}
+                {author}
               </a>
             )}
           </SkeletonTheme>
@@ -73,7 +75,7 @@ function Track({ loading, children }) {
               <Skeleton width={290} height={17} borderRadius={0} count={1} />
             ) : (
               <a className={styles.track__album_link} href="http://">
-                {items[0].album}
+                {album}
               </a>
             )}
           </SkeletonTheme>
@@ -87,7 +89,7 @@ function Track({ loading, children }) {
                 <use xlinkHref={`${Sprite}#icon-like`}></use>
               </svg>
               <span className={styles.track__time_text}>
-                {items[0].duration}
+                {duration}
               </span>
             </div>
           )}

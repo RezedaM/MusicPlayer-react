@@ -8,9 +8,9 @@ export default function Burger() {
   const [menuActive, setMenuActive] = useState(false)
 
   const items = [
-    { value: 'Главное', href: 'link', id: 1 },
-    { value: 'Мой плейлист', href: 'link', id: 1 },
-    { value: 'Войти', href: 'link', id: 1 },
+    { value: 'Главное', href: '/', id: "nav_1" },
+    { value: 'Мой плейлист', href: '/personal', id: "nav_2" },
+    { value: 'Выйти', href: '/login', id: "nav_3"},
   ]
   return (
     <nav className={styles.main__nav}>

@@ -12,6 +12,7 @@ import NavMenu from '../nav/navMenu'
 import Personal from '../sidebar/personal'
 import SidebarItem from '../sidebar/sidebarItem'
 import styles from '../mainTree/mainTree.module.css'
+import { AppRoutes } from '../../routes'
 
 // const items = [
 //   { value: 'Главное', href: 'link', id: 1 },
@@ -21,17 +22,20 @@ import styles from '../mainTree/mainTree.module.css'
 
 export default function MainTree() {
   return (
-    <div className={styles.wrapper}>
-      <div className={styles.container}>
-        <main className={styles.main}>
-          <Burger />
-          <CenterBlock />
-          <Sidebar />
-        </main>
-        <div className={styles.bar}>
-          <Bar />
+    <div className="App">
+      
+      <div className={styles.wrapper}>
+        <div className={styles.container}>
+          <main className={styles.main}>
+            <Burger />
+            <CenterBlock />
+            <Sidebar />
+          </main>
+          <div className={styles.bar}>
+            <Bar />
+          </div>
+          <footer className={styles.footer}></footer>
         </div>
-        <footer className={styles.footer}></footer>
       </div>
     </div>
   )

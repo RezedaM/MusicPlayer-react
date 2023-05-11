@@ -1,4 +1,5 @@
 import styles from '../nav/navMenu.module.css'
+import { Link } from 'react-router-dom'
 
 export default function NavMenu({ items, active }) {
   return (
@@ -12,9 +13,9 @@ export default function NavMenu({ items, active }) {
       >
         {items.map((item) => (
           <li className={styles.menu__item} key={item.id}>
-            <a href={item.href} className={styles.menu__link}>
+            <Link to={item.href} className={styles.menu__link}>
               {item.value}
-            </a>
+            </Link>
           </li>
         ))}
       </ul>

@@ -3,9 +3,11 @@ import { PropsWithChildren, useState } from 'react'
 import Skeleton, { SkeletonTheme } from 'react-loading-skeleton'
 import 'react-loading-skeleton/dist/skeleton.css'
 import styles from '../sidebar/sidebarItem.module.css'
+import { Link } from 'react-router-dom'
 
-export default function SidebarItem({ sidebarImage }) {
+export default function SidebarItem({ sidebarImage,sidebarLink}) {
   const [loadingPage, setLoadingPage] = useState(true)
+
 
   useEffect(() => {
     const timer = setTimeout(() => {
@@ -20,13 +22,13 @@ export default function SidebarItem({ sidebarImage }) {
         {loadingPage ? (
           <Skeleton width={250} height={150} borderRadius={0} count={1} />
         ) : (
-          <a className={styles.sidebar__link} href="#">
+          <Link className={styles.sidebar__link} to={`/playlist/${sidebarLink}`}>
             <img
               className={styles.sidebar__img}
               src={sidebarImage}
               alt="day's playlist"
             />
-          </a>
+          </Link>
         )}
       </SkeletonTheme>
     </div>
