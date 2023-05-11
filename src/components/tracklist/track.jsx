@@ -1,9 +1,9 @@
-// import './tracklist/track.css'
+import styles from '../tracklist/track.module.css'
 import { useEffect } from 'react'
 import { PropsWithChildren, useState } from 'react'
 import Skeleton, { SkeletonTheme } from 'react-loading-skeleton'
 import 'react-loading-skeleton/dist/skeleton.css'
-import Sprite from '../assets/icons/sprite.svg'
+import Sprite from '../../assets/icons/sprite.svg'
 
 function Track({ loading, children }) {
   const [loadingPage, setLoadingPage] = useState(true)
@@ -25,11 +25,11 @@ function Track({ loading, children }) {
     },
   ]
   return (
-    <div className="playlist__item">
-      <div className="playlist__track track">
-        <div className="track__title">
-          <div className="track__title-image">
-            <svg className="track__title-svg" alt="music">
+    <div className={styles.playlist__item}>
+      <div className={styles.playlist__track}>
+        <div className={styles.track__title}>
+          <div className={styles.track__title_image}>
+            <svg className={styles.track__title_svg} alt="music">
               <SkeletonTheme color="#FFFFFF" highlightColor="#f2f2f2">
                 {loadingPage ? (
                   <Skeleton count={1} />
@@ -43,72 +43,55 @@ function Track({ loading, children }) {
             {loadingPage ? (
               <Skeleton width={350} height={17} borderRadius={0} count={1} />
             ) : (
-              <div className="track__title-text">
-                <a className="track__title-link" href={items[0].track_file}>
-                  {items[0].name} <span className="track__title-span"></span>
+              <div className={styles.track__title_text}>
+                <a
+                  className={styles.track__title_link}
+                  href={items[0].track_file}
+                >
+                  {items[0].name}{' '}
+                  <span className={styles.track__title_span}></span>
                 </a>
               </div>
             )}
           </SkeletonTheme>
-          {/* <div className="track__title-text"> */}
-          {/* <SkeletonTheme color="#FFFFFF" highlightColor="#f2f2f2">
-              {loadingPage ? (
-                <Skeleton count={1} />
-              ) : (
-                <a className="track__title-link" href={items[0].track_file}>
-                  {items[0].name} <span className="track__title-span"></span>
-                </a>
-              )}
-            </SkeletonTheme> */}
-          {/* </div> */}
         </div>
 
-        <div className="track__author">
+        <div className={styles.track__author}>
           <SkeletonTheme baseColor="#313131" highlightColor="#313131">
             {loadingPage ? (
               <Skeleton width={290} height={17} borderRadius={0} count={1} />
             ) : (
-              <a className="track__author-link" href="http://">
+              <a className={styles.track__author_link} href="http://">
                 {items[0].author}
               </a>
             )}
           </SkeletonTheme>
-          {/* <a className="track__author-link" href="http://">
-            {items[0].author}
-          </a> */}
         </div>
-        <div className="track__album">
+        <div className={styles.track__album}>
           <SkeletonTheme baseColor="#313131" highlightColor="#313131">
             {loadingPage ? (
               <Skeleton width={290} height={17} borderRadius={0} count={1} />
             ) : (
-              <a className="track__album-link" href="http://">
+              <a className={styles.track__album_link} href="http://">
                 {items[0].album}
               </a>
             )}
           </SkeletonTheme>
-          {/* <a className="track__album-link" href="http://">
-            {items[0].album}
-          </a> */}
         </div>
         <SkeletonTheme baseColor="#313131" highlightColor="#313131">
           {loadingPage ? (
             <Skeleton width={40} height={17} borderRadius={0} count={1} />
           ) : (
-            <div className="track__time">
-              <svg className="track__time-svg" alt="time">
+            <div className={styles.track__time}>
+              <svg className={styles.track__time_svg} alt="time">
                 <use xlinkHref={`${Sprite}#icon-like`}></use>
               </svg>
-              <span className="track__time-text">{items[0].duration}</span>
+              <span className={styles.track__time_text}>
+                {items[0].duration}
+              </span>
             </div>
           )}
         </SkeletonTheme>
-        {/* <div className="track__time">
-          <svg className="track__time-svg" alt="time">
-            <use xlinkHref={`${Sprite}#icon-like`}></use>
-          </svg>
-          <span className="track__time-text">{items[0].duration}</span>
-        </div> */}
       </div>
     </div>
   )

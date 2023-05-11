@@ -11,6 +11,7 @@ import Search from '../search/search'
 import NavMenu from '../nav/navMenu'
 import Personal from '../sidebar/personal'
 import SidebarItem from '../sidebar/sidebarItem'
+import styles from '../mainTree/mainTree.module.css'
 
 // const items = [
 //   { value: 'Главное', href: 'link', id: 1 },
@@ -20,17 +21,17 @@ import SidebarItem from '../sidebar/sidebarItem'
 
 export default function MainTree() {
   return (
-    <div className="wrapper">
-      <div className="container">
-        <main className="main">
+    <div className={styles.wrapper}>
+      <div className={styles.container}>
+        <main className={styles.main}>
           <Burger />
           <CenterBlock />
           <Sidebar />
         </main>
-        <div className="bar">
+        <div className={styles.bar}>
           <Bar />
         </div>
-        <footer className="footer"></footer>
+        <footer className={styles.footer}></footer>
       </div>
     </div>
   )

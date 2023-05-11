@@ -2,21 +2,20 @@ import React from 'react'
 import ReactDOM from 'react-dom/client'
 import './index.css'
 import App from './App'
-import Track from './tracklist/track'
-import TrackList from './tracklist/tracklist'
-import Filter from './filter-by/filter'
-import Search from './search/search'
-import CenterBlock from './centerBlock/centerblock'
-import Burger from './nav/burger'
-import NavMenu from './nav/navMenu'
-import Sidebar from './sidebar/sidebar'
-import MainTree from './mainTree/mainTree'
+import Track from '../src/components/tracklist/track'
+import TrackList from '../src/components/tracklist/tracklist'
+import Filter from '../src/components/filter-by/filter'
+import Search from '../src/components/search/search'
+import CenterBlock from '../src/components/centerBlock/centerblock'
+import Burger from '../src/components/nav/burger'
+import NavMenu from '../src/components/nav/navMenu'
+import Sidebar from '../src/components/sidebar/sidebar'
+import MainTree from '../src/components/mainTree/mainTree'
 import { useState } from 'react'
 
 const root = ReactDOM.createRoot(document.getElementById('root'))
 root.render(
   <React.StrictMode>
     <MainTree />
-
   </React.StrictMode>
 )
