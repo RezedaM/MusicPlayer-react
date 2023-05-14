@@ -1,7 +1,13 @@
 import styles from '../nav/navMenu.module.css'
 import { Link } from 'react-router-dom'
+import { useParams } from 'react-router-dom'
 
 export default function NavMenu({ items, active }) {
+  function logout(e) {
+    if (Link.value === 'Выйти') {
+      localStorage.removeItem('login')
+    }
+  }
   return (
     <div className={styles.nav__menu}>
       <ul

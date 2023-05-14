@@ -2,7 +2,7 @@ import { AppRoutes } from './routes'
 import {useState} from 'react'
 
 function App() {
-  const [user, setUser] = useState(null)
+  const [user, setUser] = useState(localStorage.getItem('login'))
 
   // const handleLogin = () => setUser({ login: 'taradam' })
   // const handleLogout = () => setUser(null)

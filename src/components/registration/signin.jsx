@@ -1,10 +1,12 @@
 import styles from '../registration/signin.module.css'
 import logo_modal from '../../assets/images/logo_modal.png'
 import { Link, useNavigate } from 'react-router-dom'
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 
 export default function Signin({ setUser }) {
-  const [userName, setUserName] = useState('')
+  //   const [userName, setUserName] = useState('')
+
+  const [userName, setUserName] = useState(localStorage.getItem('login'))
   const [pass, setPass] = useState('')
   const navigate = useNavigate()
 
@@ -14,12 +16,28 @@ export default function Signin({ setUser }) {
   const handlePassrChange = (e) => {
     setPass(e.target.value)
   }
+
   function handleSubmit(e) {
     e.preventDefault()
     setUser({ login: userName })
     // console.log(login)
     navigate('/')
   }
+
+  useEffect(() => {
+    localStorage.setItem('login', userName)
+  })
+
+//   useEffect(()=> {
+//     localStorage.getItem('login') ? localStorage.removeItem('login') : localStorage.setItem('login', userName)
+//   })
+  
+  //   function handleSubmit(e) {
+  //     e.preventDefault()
+  //     setUser({ login: userName })
+  //     // console.log(login)
+  //     navigate('/')
+  //   }
 
   return (
     <div className={styles.wrapper}>
