@@ -4,7 +4,7 @@ import TrackList from '../tracklist/tracklist'
 import Filter from '../filter-by/filter'
 import Search from '../search/search'
 export default function MainSelection({ personal, header }) {
-  console.log(personal)
+  // console.log(personal)
   let cls = ''
   personal === 'yes' ?  cls = `${styles.centerblock__filter} ${styles.hide}` : cls = `${styles.centerblock__filter}`
   return (

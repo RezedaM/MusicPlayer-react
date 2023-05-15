@@ -1,13 +1,38 @@
 import BarPlayer from '../bar/barPlayer'
 import BarVolume from '../bar/barVolume'
 import styles from '../bar/bar.module.css'
+import { useRef, useState } from 'react'
+import ProgressBar from './progressBar'
 
-export default function Bar() {
+export default function Bar({ playTrack }) {
+  playTrack = '/Bobby_Marleni_-_Dropin.mp3'
+  const audioRef = useRef(null)
+  const durationRef = useRef(null)
+
+  const [duration, setDuration] = useState(0)
+  // const [progress, setProgress] = useState(0)
+
+  const onLoadedMetadata = () => {
+    const duration_in_seconds = audioRef.current.duration
+    setDuration(duration_in_seconds)
+    durationRef.current.max = duration_in_seconds
+    console.log(audioRef.current.duration)
+  }
+
   return (
     <div className={styles.bar__content}>
-      <div className={styles.bar__player_progress}></div>
+      <audio
+        controls
+        ref={audioRef}
+        src={playTrack}
+        className={styles.audio_player}
+        onLoadedMetadata={onLoadedMetadata}
+      />
+
+      <ProgressBar {...{ audioRef, duration, durationRef }} />
+
       <div className={styles.bar__player_block}>
-        <BarPlayer />
+        <BarPlayer {...{ audioRef, setDuration, durationRef }} />
         <BarVolume />
       </div>
     </div>

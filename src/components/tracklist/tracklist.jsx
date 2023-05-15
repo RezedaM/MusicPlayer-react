@@ -7,19 +7,19 @@ import { useParams } from 'react-router-dom'
 
 function TrackList({ props, listId, personal }) {
   const params = useParams()
-  console.log(params)
+  // console.log(params)
   let playId = params.id
-  console.log(playId)
-  console.log(personal)
+  // console.log(playId)
+  // console.log(personal)
   let selectItems = []
   if (personal === 'yes') {
     selectItems = MYTRACKS
-    console.log('GOGOGOGOGOG')
+    // console.log('GOGOGOGOGOG')
   } else if (playId === undefined) {
     selectItems = ALLTRACKS
   } else {
     playId = Number(playId) - 1
-    console.log(playId)
+    // console.log(playId)
     selectItems = SELECTIONS[playId].items
   }
 

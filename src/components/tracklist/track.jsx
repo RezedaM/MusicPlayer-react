@@ -5,7 +5,7 @@ import Skeleton, { SkeletonTheme } from 'react-loading-skeleton'
 import 'react-loading-skeleton/dist/skeleton.css'
 import Sprite from '../../assets/icons/sprite.svg'
 
-function Track({ loading, children, author, album, name, duration, track_file }) {
+function Track({ author, album, name, duration, track_file }) {
   const [loadingPage, setLoadingPage] = useState(true)
 
   useEffect(() => {
@@ -15,7 +15,7 @@ function Track({ loading, children, author, album, name, duration, track_file })
     return () => clearTimeout(timer)
   }, [])
 
-  console.log(author)
+  // console.log(author)
 
   // const items = [
   //   {
