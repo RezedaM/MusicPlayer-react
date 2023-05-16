@@ -1,3 +1,5 @@
+@import '../../variables.css';
+
 .playlist__item {
   width: 100%;
   display: block;
@@ -38,7 +40,7 @@
   width: 51px;
   height: 51px;
   padding: 16px;
-  background: #313131;
+  background: var(--barPlayer-background);
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -54,7 +56,7 @@
   width: 18px;
   height: 17px;
   fill: transparent;
-  stroke: #4e4e4e;
+  stroke: var(--border-bottom);
 }
 
 .track__title_link {
@@ -62,7 +64,7 @@
   font-weight: 400;
   font-size: 16px;
   line-height: 24px;
-  color: #ffffff;
+  color: var(--a-color);
 }
 
 .track__title_span {
@@ -70,7 +72,7 @@
   font-weight: 400;
   font-size: 16px;
   line-height: 24px;
-  color: #4e4e4e;
+  color: var(--border-bottom);
 }
 .track__author {
   width: 321px;
@@ -87,7 +89,7 @@
   font-weight: 400;
   font-size: 16px;
   line-height: 24px;
-  color: #ffffff;
+  color: var(--a-color);
   text-align: left;
 }
 
@@ -100,7 +102,7 @@
   font-weight: 400;
   font-size: 16px;
   line-height: 24px;
-  color: #696969;
+  color: var(--barPlayer-stroke);
 }
 
 .track__time_svg {
@@ -108,7 +110,7 @@
   height: 12px;
   margin-right: 17px;
   fill: transparent;
-  stroke: #696969;
+  stroke: var(--barPlayer-stroke);
 }
 
 .track__time_text {
@@ -117,5 +119,5 @@
   font-size: 16px;
   line-height: 24px;
   text-align: right;
-  color: #696969;
+  color: var(--barPlayer-stroke);
 }

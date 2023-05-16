@@ -4,6 +4,7 @@ import { useState } from 'react'
 import { Link } from 'react-router-dom'
 
 import styles from '../nav/burger.module.css'
+import { useThemeContext } from '../../contexts/theme'
 
 export default function Burger() {
   const [menuActive, setMenuActive] = useState(false)
@@ -13,6 +14,11 @@ export default function Burger() {
     { value: 'Мой плейлист', href: '/personal', id: 'nav_2' },
     { value: 'Выйти', href: '/login', id: 'nav_3' },
   ]
+
+  const { toggleTheme, currentTheme } = useThemeContext
+
+  console.log(currentTheme)
+  console.log(toggleTheme)
   return (
     <nav className={styles.main__nav}>
       <div className={styles.nav__logo}>

@@ -41,6 +41,8 @@ body {
   font-family: 'StratosSkyeng', sans-serif;
 } */
 
+@import "../../variables.css";
+
 .wrapper {
   width: 100%;
   min-height: 100%;
@@ -52,7 +54,8 @@ body {
   height: 100vh;
   margin: 0 auto;
   position: relative;
-  background-color: rgba(0, 0, 0, 0.85);
+  /* background-color: rgba(0, 0, 0, 0.85); */
+  background-color: var(--signup-background);
 }
 
 .modal__btn_signup_ent:hover {

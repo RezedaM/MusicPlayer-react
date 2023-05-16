@@ -1,8 +1,11 @@
+@import "../../variables.css";
+
 .wrapper {
     width: 100%;
     min-height: 100%;
     overflow: hidden;
-    background-color: #383838;
+    /* background-color: #383838; */
+    background-color: var(--page-background);
   }
   
   .container {

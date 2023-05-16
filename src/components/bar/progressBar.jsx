@@ -16,7 +16,7 @@ export default function ProgressBar({ audioRef, duration, durationRef }) {
   useEffect(() => {
     const t = setInterval(() => {
       progressGo()
-    }, 1000)
+    }, 100)
     return () => {
       clearInterval(t)
     }
@@ -35,6 +35,12 @@ export default function ProgressBar({ audioRef, duration, durationRef }) {
     )
   }
 
+//   timeline.addEventListener("click", (e) => {
+//     progress.style.width = (e.offsetX/timeline.offsetWidth*100>>0).toString() + "%"
+// })
+
+// `${(durationRef.current.value / duration) * 100}%`
+
   const handleProgressChange = () => {
     audioRef.current.currentTime = durationRef.current.value
     // console.log(durationRef.current.value)
@@ -44,6 +50,7 @@ export default function ProgressBar({ audioRef, duration, durationRef }) {
     <div>
       <input
         className={styles.bar__player_progress}
+        step="0.01"
         type="range"
         ref={durationRef}
         defaultValue="0"

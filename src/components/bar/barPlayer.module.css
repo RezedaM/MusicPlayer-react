@@ -1,3 +1,4 @@
+@import '../../variables.css';
 .btn {
   cursor: pointer;
 }
@@ -10,7 +11,8 @@
   width: 14px;
   height: 12px;
   fill: transparent;
-  stroke: #696969;
+  /* stroke: #696969; */
+  stroke: var(--barPlayer-stroke);
 }
 
 .track_play__dislike {
@@ -21,12 +23,13 @@
   width: 14.34px;
   height: 13px;
   fill: transparent;
-  stroke: #696969;
+  stroke: var(--barPlayer-stroke);
 }
 
 .btn_icon:hover svg {
   fill: transparent;
-  stroke: #acacac;
+  /* stroke: #acacac; */
+  stroke: var(--barPlayer-stroke-hover);
   cursor: pointer;
 }
 
@@ -97,7 +100,8 @@
 .track_play__image {
   width: 51px;
   height: 51px;
-  background-color: #313131;
+  /* background-color: #313131; */
+  background-color: var(--barPlayer-background);
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -163,14 +167,12 @@
 .player__btn_prev_svg {
   width: 15px;
   height: 14px;
-
 }
 .player__btn_play {
   margin-right: 23px;
 }
 .player__btn_stop_svg {
   margin-right: 23px;
-
 }
 
 .player__btn_play_svg,
@@ -199,7 +201,7 @@
   width: 18px;
   height: 12px;
   fill: transparent;
-  stroke: #696969;
+  stroke: var(--barPlayer-stroke);
 }
 
 .player__btn_shuffle {
@@ -211,5 +213,5 @@
   width: 19px;
   height: 12px;
   fill: transparent;
-  stroke: #696969;
+  stroke: var(--barPlayer-stroke);
 }
