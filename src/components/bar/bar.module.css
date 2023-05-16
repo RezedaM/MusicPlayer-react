@@ -27,3 +27,6 @@
   -ms-flex-pack: justify;
   justify-content: space-between;
 }
+.audio_player {
+  display: none;
+}

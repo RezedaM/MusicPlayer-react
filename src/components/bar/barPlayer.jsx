@@ -1,12 +1,58 @@
 import Sprite from '../../assets/icons/sprite.svg'
-import { useEffect } from 'react'
-import { PropsWithChildren, useState } from 'react'
+import { PropsWithChildren, useState, useEffect, useRef } from 'react'
 import Skeleton, { SkeletonTheme } from 'react-loading-skeleton'
 import 'react-loading-skeleton/dist/skeleton.css'
 import styles from '../bar/barPlayer.module.css'
 
-export default function BarPlayer() {
+export default function BarPlayer({ audioRef }) {
+  console.log(audioRef)
   const [loadingPage, setLoadingPage] = useState(true)
+  const [isPlaying, setIsPlaying] = useState(false)
+  // const audioRef = useRef(null)
+
+  const playStart = () => {
+    audioRef.current.play()
+    console.log('play')
+    setIsPlaying(true)
+  }
+
+  const playStop = () => {
+    audioRef.current.pause()
+    console.log('stop')
+    setIsPlaying(false)
+  }
+
+  const playBtn = (
+    <div className={`${styles.player__btn_play} ${styles.btn}`}>
+      <svg
+        className={styles.player__btn_play_svg}
+        alt="play"
+        onClick={playStart}
+      >
+        <use xlinkHref={`${Sprite}#icon-play`}></use>
+      </svg>
+    </div>
+  )
+  const stopBtn = (
+    <div className={`${styles.player__btn_stop} ${styles.btn}`}>
+      <svg
+        className={styles.player__btn_stop_svg}
+        alt="stop"
+        onClick={playStop}
+        width="15"
+        height="19"
+        viewBox="0 0 15 19"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <rect width="5" height="19" fill="#D9D9D9" />
+        <rect x="10" width="5" height="19" fill="#D9D9D9" />
+        {/* <use xlinkHref="/Users/rozzylis/Documents/react/musicplayer/src/assets/icons/pause.svg#pause"></use> */}
+      </svg>
+    </div>
+  )
+
+  const togglePlay = isPlaying ? stopBtn : playBtn
 
   useEffect(() => {
     const timer = setTimeout(() => {
@@ -18,15 +64,11 @@ export default function BarPlayer() {
     <div className={styles.bar__player}>
       <div className={styles.player__controls}>
         <div className={styles.player__btn_prev}>
-          <svg className={styles.player__btn_play_svg} alt="prev">
+          <svg className={styles.player__btn_prev_svg} alt="prev">
             <use xlinkHref={`${Sprite}#icon-prev`}></use>
           </svg>
         </div>
-        <div className={`${styles.player__btn_play} ${styles.btn}`}>
-          <svg className={styles.player__btn_play_svg} alt="play">
-            <use xlinkHref={`${Sprite}#icon-play`}></use>
-          </svg>
-        </div>
+        {togglePlay}
         <div className={styles.player__btn_next}>
           <svg className={styles.player__btn_next_svg} alt="next">
             <use xlinkHref={`${Sprite}#icon-next`}></use>
