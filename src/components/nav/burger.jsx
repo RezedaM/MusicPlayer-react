@@ -15,12 +15,12 @@ export default function Burger() {
     { value: 'Выйти', href: '/login', id: 'nav_3' },
   ]
 
-  const { toggleTheme, currentTheme } = useThemeContext
+  const { theme, toggleTheme, currentTheme } = useThemeContext()
 
   console.log(currentTheme)
   console.log(toggleTheme)
   return (
-    <nav className={styles.main__nav}>
+    <nav className={styles.main__nav} style={{ backgroundColor: currentTheme['--burger-back']}}>
       <div className={styles.nav__logo}>
         <img className={styles.logo__image} src={logo} alt="logo">
          
@@ -30,9 +30,9 @@ export default function Burger() {
         className={styles.nav__burger}
         onClick={() => setMenuActive(!menuActive)}
       >
-        <span className={styles.burger__line}></span>
-        <span className={styles.burger__line}></span>
-        <span className={styles.burger__line}></span>
+        <span className={styles.burger__line} style={{ backgroundColor: currentTheme['--burger-line']}}></span>
+        <span className={styles.burger__line} style={{ backgroundColor: currentTheme['--burger-line']}}></span>
+        <span className={styles.burger__line} style={{ backgroundColor: currentTheme['--burger-line']}}></span>
       </div>
       <NavMenu active={menuActive} setActive={setMenuActive} items={items} />
     </nav>

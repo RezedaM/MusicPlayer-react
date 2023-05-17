@@ -33,25 +33,26 @@ export const themes = {
   light: {
     '--signup-background': 'rgba(0, 0, 0, 0.85)',
     /* mainTree*/
-    '--page-background': '#ff299f',
+    '--page-background': '#F6F5F3',
     /* global */
-    '--a-color': '#ff299f',
+    '--a-color': '#181818',
     /*bar*/
-    '--bar-background': '#ff299f',
+    '--bar-background': '#850808',
     /* barPlayer*/
-    '--barPlayer-stroke': '#ff299f',
-    '--barPlayer-stroke-hover': '#ff299f',
-    '--barPlayer-background': '#ff299f',
+    '--barPlayer-stroke': '#850808',
+    '--barPlayer-stroke-hover': '#850808',
+    '--barPlayer-background': '#850808',
     /* filter by*/
-    '--scroll-back': '#ff299f',
-    '--active-color': '#ff299f',
-    '--hover-color': '#ff299f',
+    '--scroll-back': '#850808',
+    '--active-color': '#850808',
+    '--hover-color': '#850808',
     '--dropdwn-shadow': 'rgba(0, 0, 0, 0.2)',
     /*burger*/
-    '--burger-back': '#ff299f',
-    '--burger-line': '#ff299f',
+    '--burger-back': '#FFFFFF',
+    '--burger-line': '#181818',
     /*search*/
-    '--border-bottom': '#ff299f',
+    '--border-bottom': '#D9D9D9',
+    '::placeholder': { color: '#D9D9D9' },
   },
 }
 

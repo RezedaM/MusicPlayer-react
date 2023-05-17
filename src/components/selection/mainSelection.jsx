@@ -3,10 +3,13 @@ import styles from '../selection/mainSelection.module.css'
 import TrackList from '../tracklist/tracklist'
 import Filter from '../filter-by/filter'
 import Search from '../search/search'
+import {currentTheme, useThemeContext} from '../../contexts/theme'
 export default function MainSelection({ personal, header }) {
   // console.log(personal)
   let cls = ''
   personal === 'yes' ?  cls = `${styles.centerblock__filter} ${styles.hide}` : cls = `${styles.centerblock__filter}`
+
+  const {currentTheme} = useThemeContext()
   return (
     <div className={styles.main__centerblock}>
       <Search />

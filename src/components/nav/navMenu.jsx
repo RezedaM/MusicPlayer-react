@@ -7,6 +7,7 @@ import { useState } from 'react'
 import ThemeSwitcher from '../themeSwitcher/themeSwitch'
 
 export default function NavMenu({ items, active }) {
+  const { currentTheme } = useThemeContext()
   // const { theme } = useThemeContext
   // const [themeColor, setThemeColor] = useState('dark')
   // function logout(e) {
@@ -68,10 +69,11 @@ export default function NavMenu({ items, active }) {
         }`}
       >
         {items.map((item) => (
-          <li className={styles.menu__item} key={item.id}>
+          <li className={styles.menu__item} style={{ color: currentTheme['--a-color']}} key={item.id}>
             <Link
               to={item.href}
               className={styles.menu__link}
+              style={{ color: currentTheme['--a-color']}}
               
             >
               {item.value}

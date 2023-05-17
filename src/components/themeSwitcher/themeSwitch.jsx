@@ -22,10 +22,9 @@ import NavMenu from '../nav/navMenu'
 // }
 
 export default function ThemeSwitcher() {
-  const { toggleTheme, currentTheme } = useThemeContext
+  const { toggleTheme, currentTheme } = useThemeContext()
 
   console.log(currentTheme)
-  console.log(toggleTheme)
 
   const darkTheme = (
     <svg alt="dark">

@@ -53,7 +53,7 @@ export default function MainTree() {
       <div className="App">
         <div
           className={styles.wrapper}
-          style={{ backgroundColor: theme['--page-background'] }}
+          style={{ backgroundColor: currentTheme['--page-background'] }}
         >
           <div className={styles.container}>
             <main className={styles.main}>
