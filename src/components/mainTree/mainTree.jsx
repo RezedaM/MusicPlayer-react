@@ -36,7 +36,7 @@ export default function MainTree() {
 
   // <ThemeContext.Provider value= {{theme: currentTheme, toggleTheme}}></ThemeContext.Provider>
 
-  const  theme = useThemeContext
+  const theme = useThemeContext
   const [user, setUser] = useState(localStorage.getItem('login'))
   const [currentTheme, setCurrentTheme] = useState(themes.dark)
 
@@ -55,13 +55,16 @@ export default function MainTree() {
           className={styles.wrapper}
           style={{ backgroundColor: currentTheme['--page-background'] }}
         >
-          <div className={styles.container}>
+          <div
+            className={styles.container}
+            style={{ backgroundColor: currentTheme['--burger-back'] }}
+          >
             <main className={styles.main}>
               <Burger />
               <CenterBlock />
               <Sidebar />
             </main>
-            <div className={styles.bar}>
+            <div className={styles.bar} style={{ backgroundColor: currentTheme['--bar-back'] }}>
               <Bar />
             </div>
             <footer className={styles.footer}></footer>

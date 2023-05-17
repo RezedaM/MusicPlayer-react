@@ -11,12 +11,14 @@ export default function IdSelection({ header }) {
   const playId = Number(params.id) - 1
 
   header = selectHeader[playId]
+
+  const {currentTheme} = useThemeContext()
   
 
   return (
     <div className={styles.main__centerblock}>
       <Search />
-      <h2 className={styles.centerblock__h2}>{header}</h2>
+      <h2 className={styles.centerblock__h2} style={{color: currentTheme['--a-color']}}>{header}</h2>
       <TrackList />
     </div>
   )

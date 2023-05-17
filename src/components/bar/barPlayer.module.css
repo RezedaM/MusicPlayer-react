@@ -1,4 +1,4 @@
-@import '../../variables.css';
+/* @import '../../variables.css'; */
 .btn {
   cursor: pointer;
 }
@@ -64,7 +64,7 @@
   font-weight: 400;
   font-size: 13px;
   line-height: 24px;
-  color: #ffffff;
+  color: var(--a-color);
 }
 
 .track_play__like_dis {

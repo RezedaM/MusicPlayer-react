@@ -7,6 +7,7 @@ import React, { useContext } from 'react'
 
 export const themes = {
   dark: {
+    theme: 'dark',
     '--signup-background': 'rgba(0, 0, 0, 0.85)',
     /* mainTree*/
     '--page-background': '#383838',
@@ -28,9 +29,11 @@ export const themes = {
     '--burger-line': '#d3d3d3',
     /*search*/
     '--border-bottom': '#4e4e4e',
-    color: '#FFFFFF',
+
+    '--bar-back': 'rgba(28, 28, 28, 0.5)',
   },
   light: {
+    theme: 'light',
     '--signup-background': 'rgba(0, 0, 0, 0.85)',
     /* mainTree*/
     '--page-background': '#F6F5F3',
@@ -53,7 +56,10 @@ export const themes = {
     /*search*/
     '--border-bottom': '#D9D9D9',
     '::placeholder': { color: '#D9D9D9' },
+    '--bar-back': '#850808',
+    '--range-progr': '#D9D9D9',
   },
+  
 }
 
 export const ThemeContext = React.createContext({

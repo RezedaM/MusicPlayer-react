@@ -1,4 +1,4 @@
-@import '../../variables.css';
+/* @import '../../variables.css'; */
 
 .playlist__item {
   width: 100%;
@@ -89,7 +89,7 @@
   font-weight: 400;
   font-size: 16px;
   line-height: 24px;
-  color: var(--a-color);
+  color: var(--track-album);
   text-align: left;
 }
 

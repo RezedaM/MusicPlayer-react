@@ -1,5 +1,6 @@
 import NavMenu from './navMenu'
 import logo from '../../assets/images/logo.png'
+import logo_modal from '../../assets/images/logo_modal.png'
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
 
@@ -22,7 +23,7 @@ export default function Burger() {
   return (
     <nav className={styles.main__nav} style={{ backgroundColor: currentTheme['--burger-back']}}>
       <div className={styles.nav__logo}>
-        <img className={styles.logo__image} src={logo} alt="logo">
+        <img className={styles.logo__image} src={        currentTheme.theme === 'dark' ? logo : logo_modal} alt="logo">
          
         </img>
       </div>

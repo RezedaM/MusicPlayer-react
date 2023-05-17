@@ -66,14 +66,39 @@ ul li {
   margin-bottom: 14px;
   display: block;
 }
+.filter__dropdown_content_light .filter__dropdown_item_light {
+  color: #383838;
+  font-size: 20px;
+  padding: 10px 0px;
+  margin: 0;
+  text-decoration: none;
+  margin-bottom: 14px;
+  display: block;
+}
 
+.filter__dropdown_content_light .filter__dropdown_item_light:hover {
+  color: #ad61ff;
+  text-decoration: underline;
+}
 .filter__dropdown_content .filter__dropdown_item:hover {
-  color: var(--active-color);
+  color: #ad61ff;
   text-decoration: underline;
 }
 
 .btn_text:hover {
-  border-color: var(--hover-color);
-  color: var(--hover-color);
+  border-color: #d9b6ff;
+  color: #d9b6ff;
   cursor: pointer;
 }
+.btn_text {
+  color: var(--a-color);
+}
+.btn_text_light:hover {
+  border-color: #d9b6ff;
+  color: #d9b6ff;
+  cursor: pointer;
+}
+.btn_text_light {
+  color: #383838;
+}
+

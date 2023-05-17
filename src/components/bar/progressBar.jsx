@@ -1,4 +1,5 @@
 import { useState, useEffect, useRef } from 'react'
+import { useThemeContext } from '../../contexts/theme'
 import styles from './progressBar.module.css'
 
 export default function ProgressBar({ audioRef, duration, durationRef }) {
@@ -12,6 +13,7 @@ export default function ProgressBar({ audioRef, duration, durationRef }) {
   //     }
   //     return '00:00'
   //   }
+  const {currentTheme} = useThemeContext()
   const [progress, setProgress] = useState(0)
   useEffect(() => {
     const t = setInterval(() => {
@@ -47,9 +49,10 @@ export default function ProgressBar({ audioRef, duration, durationRef }) {
   }
 
   return (
-    <div>
+    <div style={{backgroundColor: currentTheme['--burger-back']}}>
       <input
         className={styles.bar__player_progress}
+        style= {{backgroundColor: currentTheme['--range-progr']}}
         step="0.01"
         type="range"
         ref={durationRef}

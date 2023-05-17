@@ -19,7 +19,14 @@
   width: 17px;
   height: 17px;
   margin-right: 5px;
-  stroke: var(--a-color);
+  stroke: #FFFFFF;
+  fill: transparent;
+}
+.search__svg_light {
+  width: 17px;
+  height: 17px;
+  margin-right: 5px;
+  stroke: black;
   fill: transparent;
 }
 
@@ -72,3 +79,26 @@
   font-size: 16px;
   line-height: 24px;
 }
+.search__text_light::placeholder {
+  background-color: transparent;
+  color: black;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 24px;
+}
+.search__text_light {
+  -webkit-box-flex: 100;
+  -ms-flex-positive: 100;
+  flex-grow: 100;
+  background-color: transparent;
+  border: none;
+  padding: 13px 10px 14px;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 24px;
+  color: black;
+}
+
+

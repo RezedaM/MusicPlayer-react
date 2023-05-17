@@ -28,7 +28,10 @@ export default function Filter({ options, optName }) {
         className={`${styles.filter__button} ${styles.button_author} ${
           styles.btn_text
         } ${isOpen ? styles.dropdwn_active : ''}`}
-        style={{ border: currentTheme['--a-color'] }}
+        style={{
+          border: `1px solid ${currentTheme['--a-color']}`,
+          color: currentTheme['--a-color'],
+        }}
         {...getToggleButtonProps()}
       >
         {selectedItem ?? optName}
@@ -39,9 +42,13 @@ export default function Filter({ options, optName }) {
             isOpen ? styles.srcollabale_menu : ''
           }`}
           style={{
-            backgroundColor: currentTheme['--barPlayer-background'],
+            backgroundColor: currentTheme['--page-background'],
             boxShadow: currentTheme['--dropdwn-shadow'],
-            border: `30px solid ${currentTheme['--barPlayer-background']}`,
+            border: `${
+              isOpen
+                ? `30px solid ${currentTheme['--page-background']}`
+                : ''
+            }`,
           }}
           {...getMenuProps()}
         >
@@ -49,6 +56,7 @@ export default function Filter({ options, optName }) {
             options.map((item, index) => (
               <li
                 className={styles.filter__dropdown_item}
+                
                 key={`${item}${index}`}
                 {...getItemProps({
                   item,

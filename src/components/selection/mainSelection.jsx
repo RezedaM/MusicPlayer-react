@@ -16,7 +16,7 @@ export default function MainSelection({ personal, header }) {
       <h2 className={styles.centerblock__h2}>{header}</h2>
 
       <div className={cls}>
-        <label className={styles.filter__title}>Искать по:</label>
+        <label className={styles.filter__title} style={{ color: currentTheme['--a-color']}}>Искать по:</label>
         <Filter
           options={[
             { value: 'Michael Jackson' },
