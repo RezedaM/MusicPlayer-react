@@ -1,3 +1,5 @@
+/* @import '../../variables.css'; */
+
 .nav__menu {
   display: block;
   visibility: visible;
@@ -12,7 +14,7 @@
   padding: 5px 0;
   margin-bottom: 16px;
   text-decoration: none;
-  color: #ffffff;
+  color: var(--a-color);
 }
 
 .menu__list.active {
@@ -20,7 +22,7 @@
 }
 
 .menu__link {
-  color: #ffffff;
+  color: var(--a-color);
   font-weight: 400;
   font-size: 16px;
   line-height: 24px;

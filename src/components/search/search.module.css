@@ -1,6 +1,8 @@
+/* @import '../../variables.css'; */
+
 .centerblock__search {
   width: 100%;
-  border-bottom: 1px solid #4e4e4e;
+  border-bottom: 1px solid var(--border-bottom);
   margin-bottom: 51px;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -17,7 +19,14 @@
   width: 17px;
   height: 17px;
   margin-right: 5px;
-  stroke: #ffffff;
+  stroke: #FFFFFF;
+  fill: transparent;
+}
+.search__svg_light {
+  width: 17px;
+  height: 17px;
+  margin-right: 5px;
+  stroke: black;
   fill: transparent;
 }
 
@@ -32,12 +41,12 @@
   font-weight: 400;
   font-size: 16px;
   line-height: 24px;
-  color: #ffffff;
+  color: var(--a-color);
 }
 
 .search__text::-webkit-input-placeholder {
   background-color: transparent;
-  color: #ffffff;
+  color: var(--a-color);
   font-style: normal;
   font-weight: 400;
   font-size: 16px;
@@ -46,7 +55,7 @@
 
 .search__text:-ms-input-placeholder {
   background-color: transparent;
-  color: #ffffff;
+  color: var(--a-color);
   font-style: normal;
   font-weight: 400;
   font-size: 16px;
@@ -55,7 +64,7 @@
 
 .search__text::-ms-input-placeholder {
   background-color: transparent;
-  color: #ffffff;
+  color: var(--a-color);
   font-style: normal;
   font-weight: 400;
   font-size: 16px;
@@ -64,9 +73,32 @@
 
 .search__text::placeholder {
   background-color: transparent;
-  color: #ffffff;
+  color: var(--a-color);
   font-style: normal;
   font-weight: 400;
   font-size: 16px;
   line-height: 24px;
 }
+.search__text_light::placeholder {
+  background-color: transparent;
+  color: black;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 24px;
+}
+.search__text_light {
+  -webkit-box-flex: 100;
+  -ms-flex-positive: 100;
+  flex-grow: 100;
+  background-color: transparent;
+  border: none;
+  padding: 13px 10px 14px;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 24px;
+  color: black;
+}
+
+

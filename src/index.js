@@ -11,8 +11,10 @@ import App from './App'
 // import NavMenu from '../src/components/nav/navMenu'
 // import Sidebar from '../src/components/sidebar/sidebar'
 // import MainTree from '../src/components/mainTree/mainTree'
-// import { useState } from 'react'
+import { useState } from 'react'
 import { BrowserRouter } from 'react-router-dom'
+// import { ThemeContext, themes } from './contexts/theme'
+
 
 const root = ReactDOM.createRoot(document.getElementById('root'))
 root.render(

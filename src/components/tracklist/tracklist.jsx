@@ -4,6 +4,7 @@ import styles from '../tracklist/tracklist.module.css'
 import { SELECTIONS } from '../../constants'
 import { ALLTRACKS, MYTRACKS } from '../../constants'
 import { useParams } from 'react-router-dom'
+import { useThemeContext } from '../../contexts/theme'
 
 function TrackList({ props, listId, personal }) {
   const params = useParams()
@@ -22,6 +23,8 @@ function TrackList({ props, listId, personal }) {
     // console.log(playId)
     selectItems = SELECTIONS[playId].items
   }
+
+  const { currentTheme } = useThemeContext()
 
   // const params = useParams()
   // const playId = Number(params.id) - 1

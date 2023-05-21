@@ -13,6 +13,9 @@ import Personal from '../sidebar/personal'
 import SidebarItem from '../sidebar/sidebarItem'
 import styles from '../mainTree/mainTree.module.css'
 import { AppRoutes } from '../../routes'
+import { ThemeContext, themes, useThemeContext } from '../../contexts/theme'
+import { useState } from 'react'
+// import { ThemeContext, themes } from './contexts/theme'
 
 // const items = [
 //   { value: 'Главное', href: 'link', id: 1 },
@@ -21,22 +24,53 @@ import { AppRoutes } from '../../routes'
 // ]
 
 export default function MainTree() {
+  // const [currentTheme, setCurrentTheme] = useState(themes.dark)
+
+  // const toggleTheme = () => {
+  //   if (currentTheme === themes.dark) {
+  //     setCurrentTheme(themes.light)
+  //     return
+  //   }
+  //   setCurrentTheme(themes.dark)
+  // }
+
+  // <ThemeContext.Provider value= {{theme: currentTheme, toggleTheme}}></ThemeContext.Provider>
+
+  const theme = useThemeContext
+  const [user, setUser] = useState(localStorage.getItem('login'))
+  const [currentTheme, setCurrentTheme] = useState(themes.dark)
+
+  const toggleTheme = () => {
+    if (currentTheme === themes.dark) {
+      setCurrentTheme(themes.light)
+      return
+    }
+    setCurrentTheme(themes.dark)
+  }
+  console.log(currentTheme)
   return (
-    <div className="App">
-      
-      <div className={styles.wrapper}>
-        <div className={styles.container}>
-          <main className={styles.main}>
-            <Burger />
-            <CenterBlock />
-            <Sidebar />
-          </main>
-          <div className={styles.bar}>
-            <Bar />
+    <ThemeContext.Provider value={{ theme, currentTheme, toggleTheme }}>
+      <div className="App">
+        <div
+          className={styles.wrapper}
+          style={{ backgroundColor: currentTheme['--page-background'] }}
+        >
+          <div
+            className={styles.container}
+            style={{ backgroundColor: currentTheme['--burger-back'] }}
+          >
+            <main className={styles.main}>
+              <Burger />
+              <CenterBlock />
+              <Sidebar />
+            </main>
+            <div className={styles.bar} style={{ backgroundColor: currentTheme['--bar-back'] }}>
+              <Bar />
+            </div>
+            <footer className={styles.footer}></footer>
           </div>
-          <footer className={styles.footer}></footer>
         </div>
       </div>
-    </div>
+    </ThemeContext.Provider>
   )
 }
