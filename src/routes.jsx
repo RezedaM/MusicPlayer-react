@@ -7,17 +7,17 @@ import IdSelection from './components/selection/idSelection'
 import { ProtectedRoute } from './components/protectedRoute/protectedRoute'
 import Signup from './components/registration/signup'
 import Signin from './components/registration/signin'
+import { Navigate } from 'react-router-dom'
 
-
-export const AppRoutes = ({ user, setUser }) => {
+export const AppRoutes = ({ userToken, setUserToken }) => {
   return (
     <Routes>
-      <Route path="/login" element={<Signin setUser={setUser} />} />
+      <Route path="/login" element={<Signin setUserToken={setUserToken} />} />
       <Route path="/signup" element={<Signup />} />
       <Route
         path="/"
         element={
-          <ProtectedRoute isAllowed={Boolean(user)}>
+          <ProtectedRoute isAllowed={Boolean(userToken)}>
             <Main />
           </ProtectedRoute>
         }
@@ -34,4 +34,8 @@ export const AppRoutes = ({ user, setUser }) => {
   )
 }
 
-
+// userToken !== '' ? (
+//   <Navigate to="/" />
+// ) : (
+//   <Signin setUserToken={setUserToken} />
+// )
