@@ -4,8 +4,8 @@ import { useThemeContext } from '../../contexts/theme'
 
 export default function Search(props) {
   const { themes, currentTheme } = useThemeContext()
-  console.log(currentTheme)
-  console.log(themes)
+  // console.log(currentTheme)
+  // console.log(themes)
 
   return (
     <div

@@ -18,8 +18,8 @@ export default function Burger() {
 
   const { theme, toggleTheme, currentTheme } = useThemeContext()
 
-  console.log(currentTheme)
-  console.log(toggleTheme)
+  // console.log(currentTheme)
+  // console.log(toggleTheme)
   return (
     <nav className={styles.main__nav} style={{ backgroundColor: currentTheme['--burger-back']}}>
       <div className={styles.nav__logo}>

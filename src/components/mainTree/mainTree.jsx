@@ -15,6 +15,7 @@ import styles from '../mainTree/mainTree.module.css'
 import { AppRoutes } from '../../routes'
 import { ThemeContext, themes, useThemeContext } from '../../contexts/theme'
 import { useState } from 'react'
+import { setToken } from '../../store/state/userSlice'
 // import { ThemeContext, themes } from './contexts/theme'
 
 // const items = [
@@ -47,7 +48,7 @@ export default function MainTree() {
     }
     setCurrentTheme(themes.dark)
   }
-  console.log(currentTheme)
+  // console.log(currentTheme)
   return (
     <ThemeContext.Provider value={{ theme, currentTheme, toggleTheme }}>
       <div className="App">
@@ -64,7 +65,10 @@ export default function MainTree() {
               <CenterBlock />
               <Sidebar />
             </main>
-            <div className={styles.bar} style={{ backgroundColor: currentTheme['--bar-back'] }}>
+            <div
+              className={styles.bar}
+              style={{ backgroundColor: currentTheme['--bar-back'] }}
+            >
               <Bar />
             </div>
             <footer className={styles.footer}></footer>

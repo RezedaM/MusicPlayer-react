@@ -2,69 +2,111 @@ import styles from '../registration/signin.module.css'
 import logo_modal from '../../assets/images/logo_modal.png'
 import { Link, useNavigate } from 'react-router-dom'
 import { useState, useEffect } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
+import { getUser, setUser } from '../../store/state/userSlice'
+import {
+  useLoginUserMutation,
+  useGetTokenUserMutation,
+} from '../../store/api/musicApi'
+import { useForm } from 'react-hook-form'
+import { userAutorization, userGetToken } from '../../redux/events/auth'
 
-export default function Signin({ setUser }) {
-  //   const [userName, setUserName] = useState('')
-
-  const [userName, setUserName] = useState(localStorage.getItem('login'))
-  const [pass, setPass] = useState('')
+export default function Signin() {
+  const dispatch = useDispatch()
   const navigate = useNavigate()
 
-  const handleUserNameChange = (e) => {
-    setUserName(e.target.value)
-  }
-  const handlePassrChange = (e) => {
-    setPass(e.target.value)
-  }
+  // const [userToken, setUserToken] = useState(localStorage.getItem('refreshToken'))
+  // const [pass, setPass] = useState('')
 
-  function handleSubmit(e) {
-    e.preventDefault()
-    setUser({ login: userName })
-    // console.log(login)
-    navigate('/')
-  }
+  const { register, handleSubmit, errors } = useForm()
+  const [loginUser, { isSuccess }] = useLoginUserMutation()
+  const [getTokenUser] = useGetTokenUserMutation()
+  // const [isLoading, setIsLoading] = useState(false)
+  const [refToken, setRefToken] = useState(localStorage.getItem('refreshToken'))
+  // localStorage.getItem('refreshToken')
 
-  useEffect(() => {
-    localStorage.setItem('login', userName)
+  const [isUser, setIsUser] = useState({
+    email: '',
+    password: '',
   })
 
-//   useEffect(()=> {
-//     localStorage.getItem('login') ? localStorage.removeItem('login') : localStorage.setItem('login', userName)
-//   })
-  
-  //   function handleSubmit(e) {
-  //     e.preventDefault()
-  //     setUser({ login: userName })
-  //     // console.log(login)
-  //     navigate('/')
-  //   }
+  console.log('isUser >', isUser)
+
+  // const userFromState = useSelector(loginUser)
+  // console.log('userFromState >', userFromState)
+
+  // const token = localStorage.getItem('refreshToken')
+  const isLogin = () => {
+    const token = localStorage.getItem('refreshToken')
+    // setRefToken(localStorage.getItem('refreshToken'))
+    // console.log(refToken)
+    // console.log('getUserFromStore', getUser)
+    if (token === '') {
+      console.log('GOTOloginN')
+      // navigate('/login')
+    } else {
+      console.log('mainpage')
+      navigate('/')
+    }
+  }
+
+  // const [refToken, setRefToken] = useState(localStorage.getItem('refreshToken'))
+  // localStorage.getItem('refreshToken')
+  // console.log('refToken before >', refToken)
+
+  useEffect(() => {
+    console.log('useEffect func')
+    console.log('refToken >', refToken)
+    refToken === '' ? console.log('NONONONO') : navigate('/')
+  }, [refToken])
+
+  const onSubmit = async () => {
+    await userAutorization(loginUser, getTokenUser, dispatch, isUser, navigate)
+    setRefToken(localStorage.getItem('refreshToken'))
+    console.log('tTOKEN > ', localStorage.getItem('refreshToken'))
+    // const token = localStorage.getItem('refreshToken')
+    console.log('refToken >', refToken)
+    console.log('onSubmit func')
+    console.log('refToken >', refToken)
+    // navigate('/')
+  }
 
   return (
     <div className={styles.wrapper}>
       <div className={styles.container_enter}>
         <div className={styles.modal__block}>
-          <form className={styles.modal__form_login} id="formLogIn" action="#">
+          <form
+            className={styles.modal__form_login}
+            id="formLogIn"
+            action="#"
+            onSubmit={handleSubmit(onSubmit)}
+          >
             <div className={styles.modal__logo}>
               <img src={logo_modal} alt="logo" />
             </div>
             <input
               className={`${styles.modal__input} ${styles.login}`}
+              {...register('email')}
               type="text"
-              name="login"
-              id="formlogin"
-              placeholder="Логин"
+              id="EmailLog"
+              placeholder="e-mail"
+              onChange={(e) => setIsUser({ ...isUser, email: e.target.value })}
             ></input>
             <input
               className={`${styles.modal__input} ${styles.password}`}
+              {...register('password')}
               type="password"
               name="password"
               id="formpassword"
               placeholder="Пароль"
+              onChange={(e) =>
+                setIsUser({ ...isUser, password: e.target.value })
+              }
             ></input>
             <button
               className={styles.modal__btn_enter}
               id="btnEnter"
-              onClick={handleSubmit}
+              onClick={handleSubmit(onSubmit)}
             >
               <Link to="/">Войти</Link>{' '}
             </button>
