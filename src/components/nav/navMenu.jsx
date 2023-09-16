@@ -15,8 +15,8 @@ export default function NavMenu({ items, active }) {
     const token = localStorage.getItem('refreshToken')
     if (item.value === 'Выйти') {
       // setRefToken(localStorage.setItem('refreshToken', ''))
-      localStorage.setItem('refreshToken', '')
-      localStorage.setItem('AccessToken', '')
+      localStorage.clear()
+      // localStorage.setItem('AccessToken', null)
 
       console.log('EXIT')
       // navigate('/login')
