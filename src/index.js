@@ -1,6 +1,7 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
 import './index.css'
+import { Provider } from 'react-redux'
 import App from './App'
 // import Track from '../src/components/tracklist/track'
 // import TrackList from '../src/components/tracklist/tracklist'
@@ -13,14 +14,18 @@ import App from './App'
 // import MainTree from '../src/components/mainTree/mainTree'
 import { useState } from 'react'
 import { BrowserRouter } from 'react-router-dom'
+import store from './store/store'
 // import { ThemeContext, themes } from './contexts/theme'
-
+{
+  /* <React.StrictMode></React.StrictMode> */
+}
 
 const root = ReactDOM.createRoot(document.getElementById('root'))
+
 root.render(
-  <React.StrictMode>
+  <Provider store={store}>
     <BrowserRouter>
       <App />
     </BrowserRouter>
-  </React.StrictMode>
+  </Provider>
 )
