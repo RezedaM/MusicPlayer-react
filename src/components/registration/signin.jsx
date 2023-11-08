@@ -23,7 +23,7 @@ export default function Signin() {
   const [loginUser, { isSuccess }] = useLoginUserMutation()
   const [getTokenUser] = useGetTokenUserMutation()
   // const [isLoading, setIsLoading] = useState(false)
-  // const [refToken, setRefToken] = useState(localStorage.getItem('refreshToken'))
+  const [refToken, setRefToken] = useState(localStorage.getItem('refreshToken'))
   // localStorage.getItem('refreshToken')
 
   // const [isUser, setIsUser] = useState({
@@ -55,13 +55,13 @@ export default function Signin() {
   // localStorage.getItem('refreshToken')
   // console.log('refToken before >', refToken)
 
-  // useEffect(() => {
-  //   console.log('useEffect func')
-  //   // console.log('refToken >', refToken)
-  //   localStorage.getItem('refreshToken') === null
-  //     ? console.log('NONONONO')
-  //     : navigate('/')
-  // }, [localStorage.getItem('refreshToken')])
+  useEffect(() => {
+    console.log('useEffect func')
+    // console.log('refToken >', refToken)
+    localStorage.getItem('refreshToken') === null
+      ? console.log('NONONONO')
+      : navigate('/')
+  }, [localStorage.getItem('refreshToken')])
 
   // navigate('/')
 
@@ -75,7 +75,7 @@ export default function Signin() {
     await userAutorization(loginUser, getTokenUser, dispatch, data, navigate)
 
     let token = localStorage.getItem('refreshToken')
-    // setRefToken(token)
+    setRefToken(token)
     console.log(token)
     // setUserToken(token)
 
