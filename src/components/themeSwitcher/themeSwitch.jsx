@@ -24,7 +24,7 @@ import NavMenu from '../nav/navMenu'
 export default function ThemeSwitcher() {
   const { toggleTheme, currentTheme } = useThemeContext()
 
-  console.log(currentTheme)
+  // console.log(currentTheme)
 
   const darkTheme = (
     <svg alt="dark">

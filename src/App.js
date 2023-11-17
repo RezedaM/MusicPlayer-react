@@ -3,7 +3,8 @@ import { useState } from 'react'
 // import { ThemeContext, themes } from './contexts/theme'
 
 function App() {
-  const [user, setUser] = useState(localStorage.getItem('login'))
+  // const [user, setUser] = useState(localStorage.getItem('login'))
+  const [userToken, setUserToken] = useState(localStorage.getItem('refreshToken'))
   // const [currentTheme, setCurrentTheme] = useState(themes.dark)
 
   // const toggleTheme = () => {
@@ -19,7 +20,7 @@ function App() {
   // const handleLogout = () => setUser(null)
   return (
     // <ThemeContext.Provider value={{ theme: currentTheme, toggleTheme }}>
-    <AppRoutes user={user} setUser={setUser} />
+    <AppRoutes userToken={userToken} setUserToken={setUserToken} />
     // </ThemeContext.Provider>
   )
 }
