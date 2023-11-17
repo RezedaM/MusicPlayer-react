@@ -10,10 +10,11 @@ import {
 } from '../../store/api/musicApi'
 import { useForm } from 'react-hook-form'
 import { userAutorization, userGetToken } from '../../redux/events/auth'
+import { Navigate } from 'react-router-dom'
 
 export default function Signin() {
   const dispatch = useDispatch()
-  const navigate = useNavigate()
+  let navigate = useNavigate()
   console.log('RENDER LOGIN SCREEN')
 
   // const [userToken, setUserToken] = useState(localStorage.getItem('refreshToken'))
@@ -55,13 +56,15 @@ export default function Signin() {
   // localStorage.getItem('refreshToken')
   // console.log('refToken before >', refToken)
 
-  useEffect(() => {
-    console.log('useEffect func')
-    // console.log('refToken >', refToken)
-    localStorage.getItem('refreshToken') === null
-      ? console.log('NONONONO')
-      : navigate('/')
-  }, [localStorage.getItem('refreshToken')])
+  // const newToken = localStorage.getItem('refreshToken')
+
+  // useEffect(() => {
+  //   console.log('useEffect func')
+  //   // console.log('refToken >', refToken)
+  //   localStorage.getItem('refreshToken') === null
+  //     ? console.log('NONONONO')
+  //     : navigate('/')
+  // }, [newToken])  //localStorage.getItem('refreshToken')
 
   // navigate('/')
 
@@ -72,11 +75,17 @@ export default function Signin() {
     // )
     console.log(data)
     console.log(e)
+    // let token = localStorage.getItem('refreshToken')
     await userAutorization(loginUser, getTokenUser, dispatch, data, navigate)
 
     let token = localStorage.getItem('refreshToken')
-    setRefToken(token)
+    // // setRefToken(token)
     console.log(token)
+    if (token !== null) {
+      console.log('tuturu')
+      navigate('/')
+    }
+    // const newToken = localStorage.getItem('refreshToken')
     // setUserToken(token)
 
     // setRefToken(localStorage.getItem('refreshToken'))
@@ -87,6 +96,13 @@ export default function Signin() {
     // console.log('refToken >', refToken)
     // navigate('/')
   }
+
+  // const handleClick = (e) => {
+  //   e.preventDefault()
+  //   let token = localStorage.getItem('refreshToken')
+  //   console.log(token)
+  //   if (token) navigate('/')
+  // }
 
   return (
     <div className={styles.wrapper}>

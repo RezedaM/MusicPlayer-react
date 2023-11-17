@@ -62,6 +62,9 @@ export const userAutorization = async (
     //       console.log(error)
     //     }
     await userGetToken(getToken, userObj, navigate)
+    // let token = localStorage.getItem('refreshToken')
+    // console.log(localStorage.getItem('refreshToken'), 'toktok')
+    // if (localStorage.getItem('refreshToken')) navigate('/')
   } catch (error) {
     console.log(error)
   }
@@ -83,7 +86,7 @@ export const userAutorization = async (
 
 export const userGetToken = async (getToken, userObj, navigate) => {
   //   const [refToken, setRefToken] = useState(localStorage.getItem('refreshToken'))
-//   const navigateto = useNavigate()
+  //   const navigateto = useNavigate()
 
   //   try {
   const token = await getToken({
